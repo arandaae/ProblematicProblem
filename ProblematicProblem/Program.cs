@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Linq;
 
 namespace ProblematicProblem
 {
@@ -93,7 +94,7 @@ namespace ProblematicProblem
 
                     string randomActivity = activities[randomNumber];
 
-                    if (userAge > 21 && randomActivity == "Wine Tasting")
+                    if (userAge < 21 && randomActivity == "Wine Tasting")
                     {
                         Console.WriteLine($"Oh no! Looks like you are too young to do {randomActivity}");
                         Console.WriteLine("Pick something else!");
@@ -107,7 +108,7 @@ namespace ProblematicProblem
                     Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                     userAnswer = Console.ReadLine();
 
-                    if (userAnswer != "redo")
+                    if (userAnswer.ToUpper() != "redo")
                     {
                         cont = false;
                     }
